@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 class CustomAdapter(private val dataSet: ArrayList<Produto>) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
 
