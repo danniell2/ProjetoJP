@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
+import android.content.Context
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +29,14 @@ class MainActivity : AppCompatActivity() {
 
             // mostra um Snackbar de fechar
             var s = Snackbar.make(view, rotulo.text, Snackbar.LENGTH_INDEFINITE)
-            s.setAction("Fechar") { s.dismiss() } // Correção aqui
+            s.setAction("Fechar") { s.dismiss() }
             s.show()
+            exibirToast(this, "Parabéns, CLicou na tela") //exibe um toast com mensagem
         }
     }
+}
+
+// Função para exibir um Toast na tela
+fun exibirToast(context: Context, mensagem: String) {
+    Toast.makeText(context, mensagem, Toast.LENGTH_SHORT).show()
 }

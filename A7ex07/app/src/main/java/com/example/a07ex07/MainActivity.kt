@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Context
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,5 +26,13 @@ class MainActivity : AppCompatActivity() {
         // definindo o adapter
         val adapter = CustomAdapter(arr)
         r.adapter = adapter
+
+        // Chama a função 'exibirToast' para exibir um Toast
+        exibirToast(this, "Carregamento finalizado!")
     }
+}
+
+// Função para exibir um Toast na tela
+fun exibirToast(context: Context, mensagem: String) {
+    Toast.makeText(context, mensagem, Toast.LENGTH_SHORT).show()
 }

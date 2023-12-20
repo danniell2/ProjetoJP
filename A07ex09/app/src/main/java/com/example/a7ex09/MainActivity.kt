@@ -12,6 +12,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
+import android.content.Context
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +61,13 @@ class MainActivity : AppCompatActivity() {
 
     // evento (colocar no 'onClick' do botão)
     fun capturarFoto(view: View) {
+        // Chama a função 'exibirToast' para exibir um Toast
+        exibirToast(this, "Clicou!!!!")
         register.launch(null) // disparar o evento registrado
     }
+}
+
+// Função para exibir um Toast na tela
+fun exibirToast(context: Context, mensagem: String) {
+    Toast.makeText(context, mensagem, Toast.LENGTH_SHORT).show()
 }
