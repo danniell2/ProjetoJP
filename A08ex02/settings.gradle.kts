@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "A08ex02"
 include(":app")
- 
