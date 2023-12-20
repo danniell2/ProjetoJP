@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.content.Context
 import android.widget.Toast
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +28,18 @@ class MainActivity : AppCompatActivity() {
         val adapter = CustomAdapter(arr)
         r.adapter = adapter
 
-        // Chama a função 'exibirToast' para exibir um Toast
-        exibirToast(this, "Carregamento finalizado!")
+        // Encontrar o FloatingActionButton
+        val fabTop = findViewById<FloatingActionButton>(R.id.fab_top)
+
+        // Método criado para que ao ser clicado volta ao topo RecyclerView de volta para o topo
+        fabTop.setOnClickListener {
+            r.scrollToPosition(0)
+
+            // Chama a função 'exibirToast' para exibir um Toast
+            exibirToast(this, "Voltou ao topo!")
+        }
+
+
     }
 }
 

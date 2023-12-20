@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                     this, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
             } else {
                 // Chama a função 'exibirToast' para exibir um Toast
-                exibirToast(this, "Fotografou")
+                exibirToast(this, "Ligar câmera")
 
                 // Inicia a captura de imagem
                 captureImage()

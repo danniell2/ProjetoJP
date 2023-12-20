@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         val smsButton = findViewById<FloatingActionButton>(R.id.smsButton)
         val emailButton = findViewById<FloatingActionButton>(R.id.emailButton)
 
-        // Define as ações dos botões
+        // Define as ações dos botões (acessar o google, fazer ligação, mandar sms e enviar e-mail
         browserButton.setOnClickListener {
             exibirToast(this, "Acessar Google!") //exibir um toast com mensagem
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com")))

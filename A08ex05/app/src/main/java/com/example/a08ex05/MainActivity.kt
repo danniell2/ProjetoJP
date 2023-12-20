@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
 import com.example.a08ex05.api.Endpoint
+import com.example.a08ex05.databinding.ActivityDetailsBinding
+import com.example.a08ex05.databinding.ActivityMainBinding
 import com.example.a08ex05.models.User
 import com.example.a08ex05.models.UserResponse
 import com.example.a08ex05.utils.NetworkUtils
@@ -17,9 +19,13 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val meuBotao: Button = findViewById(R.id.btnFind)
         val textField: EditText = findViewById(R.id.editText)
@@ -39,9 +45,6 @@ class MainActivity : AppCompatActivity() {
         val retrofitClient = NetworkUtils
             .getRetrofitInstance("https://randomuser.me/")
 
-        //Pra poder lançar a requisição com o nome de usuario digitado pela pessoa, ultilizo o
-        //@GET com parametro query, que pode ser visto na classe Endpoint
-        //foi usado o @query porque a url termina com /api/?api=10
 
         val endpoint = retrofitClient.create(Endpoint::class.java)
         endpoint.getUsers(numero).enqueue(object : Callback<UserResponse> {

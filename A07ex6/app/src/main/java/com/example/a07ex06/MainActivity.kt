@@ -14,9 +14,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Chama a função 'exibirToast' para exibir um Toast
-        exibirToast(this, "Deu Certo")
-
         // Criando um array de strings de tamanho 100
         val strings = Array(100) { i -> "Item ${i + 1}" }
 
@@ -26,11 +23,12 @@ class MainActivity : AppCompatActivity() {
         // Conectando o adapter à ListView
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
+
+        // Esse método defique ao clicar no item irá aparecer um toast com o valor de qual item foi clicado
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val itemValue = adapter.getItem(position)
+            Toast.makeText(this, "Clicou no $itemValue", Toast.LENGTH_SHORT).show()
+        }
     }
-}
-// Função para exibir um Toast na tela
-fun exibirToast(context: Context, mensagem: String) {
-    // Cria um Toast com a mensagem fornecida e exibe-o na tela
-    Toast.makeText(context, mensagem, Toast.LENGTH_SHORT).show()
 }
 
